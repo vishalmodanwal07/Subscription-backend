@@ -3,7 +3,7 @@ import { PORT } from "./config/env.js";
 import userRouter from "./routes/user.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
-import ConnectDB from "./Database/mongodb.js";
+import ConnectDB from "./database/mongodb.js";
 
 const app = express();
 
