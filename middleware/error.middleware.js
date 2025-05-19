@@ -1,8 +1,8 @@
-const errMiddleware = (req , res , err , next) =>{
+const errMiddleware = (err, req, res, next) => {
     try {
         let error = {...err};
         error.message = err.message;
-        console.log(err); 
+        console.error(err); 
 
         //mongoose bad objectId
         if(err.name == 'CastError'){
@@ -23,7 +23,7 @@ const errMiddleware = (req , res , err , next) =>{
             error = new Error(message.join(', '));
             error.statusCode = 400;
         }
-        res.status(error.statuscode || 500).json({success:false , erroe : error.message || 'Server Error'});
+        res.status(error.statusCode || 500).json({success:false , erroe : error.message || 'Server Error'});
     } catch (error) {
         next(error);
     }

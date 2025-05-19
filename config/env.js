@@ -5,4 +5,8 @@ config({
     //import all env by default development
 });
 
-export const {PORT , NODE_ENV , DB_URI} = process.env; //export all env or accessing variable from env
+export const {PORT ,
+              NODE_ENV ,
+              DB_URI ,
+              JWT_SECRET ,
+              JWT_EXPIRES_IN } = process.env; //export all env or accessing variable from env
