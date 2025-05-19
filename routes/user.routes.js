@@ -1,10 +1,11 @@
 import { Router } from "express";
+import { getUser, getUsers } from "../controllers/user.controller.js";
 
 const userRouter = Router();
 
-userRouter.get('/' , (req , res)=> res.send({title :" GET all users"}));  //users is a static parameter
+userRouter.get('/' , getUsers);  //users is a static parameter
 
-userRouter.get('/:id' , (req , res)=> res.send({title :" GET user by id"}));  //users/:id is a dyanamic parameter
+userRouter.get('/:id' ,getUser);  //users/:id is a dyanamic parameter
 
 userRouter.post ('/' , (req , res)=> res.send({title :" Create new user"}));
 
