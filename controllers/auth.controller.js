@@ -8,9 +8,9 @@ export const signUp = async (req , res ,next) =>{
    //mongoose transaction session
      const session = await mongoose.startSession();
      session.startTransaction(); //for safe register the user on 
-     // database (edge case when server goes down operation cancelled data is not save in db)
-     try { //implment signup logic here (Create a user post req.)
-        console.log(req.body)
+     // database (edge case when server goes down during  operation then cancelled data is not save in db)
+     try { //implment signup logic here (Create a user (post req).)
+        
         const {name , password , email} = req.body;
 
          //check if user already exists
