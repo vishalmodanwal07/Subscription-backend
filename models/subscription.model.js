@@ -42,15 +42,14 @@ const subscriptionSchema = new mongoose.Schema(
             type : Date,
             required: true,
             validate : {
-                validator : (date)=> value <= new Date(),
+                validator : (date)=> date <= new Date(),
                 message : 'Start date must be in the past'      
             }
         },
          renewalDate : {
             type : Date,
-            required: true,
             validate : {
-                validator : function(date){return value > this.startDate} ,
+                validator : function(date){return date > this.startDate} ,
                 message : 'Renewal date must be after  the start date'      
             }
         },
@@ -81,7 +80,7 @@ const subscriptionSchema = new mongoose.Schema(
         //monthly
         //30days
         //jan 31
-        this.renewalDate = new Date(this.startdate);
+        this.renewalDate = new Date(this.startDate);
         this.renewalDate.setDate(this.renewalDate.getDate() + renewalPeriods[this.frequency])
       }
 
